@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diabetic Retinopathy Benchmark</title>
+  <meta
+    name="description"
+    content="A portfolio-ready B.Tech capstone project for diabetic retinopathy grading using CNN transfer learning and a classical ML baseline."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <span class="brand">Diabetic Retinopathy Benchmark</span>
+        <div class="topbar-links">
+          <a href="#comparison">Comparison</a>
+          <a href="#results">Results</a>
+          <a href="#future">Future</a>
+        </div>
+      </nav>
+
+      <div class="hero-grid">
+        <section class="hero-copy">
+          <p class="eyebrow">B.Tech Capstone · CNN + ML · GitHub Pages Ready</p>
+          <h1>Blindness detection from retinal fundus images, repackaged as a polished portfolio project.</h1>
+          <p class="hero-text">
+            This project grades diabetic retinopathy severity from retinal photographs using transfer learning CNNs,
+            a classical ML baseline, and exportable evaluation artifacts. The repository is structured for clean
+            demonstration, reproducibility, and public presentation.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#pipeline">Explore pipeline</a>
+            <a class="button secondary" href="#results">View outputs</a>
+          </div>
+          <ul class="stats">
+            <li><span>3</span><label>CNN backbones</label></li>
+            <li><span>1</span><label>ML baseline</label></li>
+            <li><span>5</span><label>DR classes</label></li>
+          </ul>
+        </section>
+
+        <aside class="hero-panel">
+          <div class="panel-card status-card">
+            <p class="panel-label">Repository status</p>
+            <h2>Publish-ready</h2>
+            <p>
+              CLI pipeline, documentation, project diagram, and GitHub Pages showcase are all included.
+            </p>
+          </div>
+          <div class="panel-card quote-card">
+            <p class="panel-label">Resume summary</p>
+            <p>
+              Built a diabetic retinopathy grading pipeline using transfer learning CNNs, a Random Forest baseline,
+              configurable training, and evaluation export workflows.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section id="pipeline" class="section">
+        <div class="section-heading">
+          <p class="section-kicker">Pipeline</p>
+          <h2>End-to-end workflow</h2>
+        </div>
+        <div class="pipeline-grid">
+          <article class="glass-card">
+            <h3>1. Input</h3>
+            <p>APTOS retinal fundus images with diabetic retinopathy labels from grade 0 to grade 4.</p>
+          </article>
+          <article class="glass-card">
+            <h3>2. Preprocessing</h3>
+            <p>Image resizing, normalization, augmentation, and stratified train-validation-test partitioning.</p>
+          </article>
+          <article class="glass-card">
+            <h3>3. Modeling</h3>
+            <p>Transfer learning with EfficientNetB0, ResNet152V2, or NASNetLarge plus a Random Forest baseline.</p>
+          </article>
+          <article class="glass-card">
+            <h3>4. Evaluation</h3>
+            <p>Accuracy, confusion matrix, classification report, training logs, saved models, and JSON summaries.</p>
+          </article>
+        </div>
+        <div class="diagram-frame">
+          <img src="retinopathy_pipeline.svg" alt="Diabetic retinopathy project pipeline diagram" />
+        </div>
+      </section>
+
+      <section id="comparison" class="section accent">
+        <div class="section-heading">
+          <p class="section-kicker">Comparison</p>
+          <h2>Architecture comparison surface</h2>
+          <p class="section-text">
+            The cards below compare the role and tradeoffs of each model family used in the project.
+          </p>
+        </div>
+        <div class="filter-bar" role="tablist" aria-label="Model filters">
+          <button class="filter-chip is-active" data-filter="all" type="button">All models</button>
+          <button class="filter-chip" data-filter="cnn" type="button">CNN backbones</button>
+          <button class="filter-chip" data-filter="ml" type="button">ML baseline</button>
+        </div>
+        <div id="model-grid" class="model-grid"></div>
+      </section>
+
+      <section id="results" class="section">
+        <div class="section-heading">
+          <p class="section-kicker">Results</p>
+          <h2>What the project produces</h2>
+          <p class="section-text">
+            This presentation layer does not invent experimental numbers. It shows the exact evaluation outputs the
+            codebase is built to generate on a final run.
+          </p>
+        </div>
+        <div class="results-shell">
+          <div id="results-cards" class="results-cards"></div>
+          <div class="results-note">
+            <p class="note-label">Final experiment note</p>
+            <p>
+              After your final local training run, copy the generated metrics into the repo if you want GitHub Pages
+              to display exact values. The code already exports `evaluation.json`, `history.csv`, and `run_summary.json`.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section accent">
+        <div class="section-heading">
+          <p class="section-kicker">Implementation</p>
+          <h2>What was refined for the final version</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <span class="timeline-index">01</span>
+            <div>
+              <h3>Path cleanup</h3>
+              <p>The project was decoupled from Kaggle-only file paths and adapted to a clean local repository layout.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-index">02</span>
+            <div>
+              <h3>Unified entrypoint</h3>
+              <p>The codebase now exposes one final CLI entrypoint with backbone selection, smoke testing, and artifact export.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-index">03</span>
+            <div>
+              <h3>Presentation layer</h3>
+              <p>README, architecture diagram, and this GitHub Pages UI were added so the project reads like a product, not a notebook dump.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="future" class="section">
+        <div class="section-heading">
+          <p class="section-kicker">Future Prospect</p>
+          <h2>Where this project can go next</h2>
+        </div>
+        <div id="future-grid" class="future-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+from pathlib import Path
+
+
+SVG_CONTENT = """<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" fill="none">
+<rect width="1440" height="860" fill="#F6F8FB"/>
+<rect x="60" y="70" width="1320" height="720" rx="32" fill="white" stroke="#D9E1EC" stroke-width="2"/>
+<text x="90" y="130" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="700">Diabetic Retinopathy Blindness Detection Pipeline</text>
+<text x="90" y="168" fill="#475569" font-family="Helvetica, Arial, sans-serif" font-size="18">APTOS retinal fundus images processed through preprocessing, CNN transfer learning, ML baseline, and evaluation.</text>
+
+<rect x="100" y="240" width="220" height="160" rx="24" fill="#E0F2FE"/>
+<text x="130" y="285" fill="#0C4A6E" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Input Data</text>
+<text x="130" y="325" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Fundus images</text>
+<text x="130" y="353" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">APTOS labels</text>
+<text x="130" y="381" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">5 severity classes</text>
+
+<rect x="390" y="240" width="240" height="160" rx="24" fill="#DCFCE7"/>
+<text x="420" y="285" fill="#166534" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Preprocessing</text>
+<text x="420" y="325" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Resize and rescale</text>
+<text x="420" y="353" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Augmentation</text>
+<text x="420" y="381" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Train/val/test split</text>
+
+<rect x="700" y="210" width="270" height="220" rx="24" fill="#FDE68A"/>
+<text x="730" y="255" fill="#854D0E" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">CNN Branch</text>
+<text x="730" y="295" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">EfficientNetB0</text>
+<text x="730" y="323" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">ResNet152V2</text>
+<text x="730" y="351" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">NASNetLarge</text>
+<text x="730" y="389" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Transfer learning</text>
+
+<rect x="700" y="500" width="270" height="180" rx="24" fill="#FCE7F3"/>
+<text x="730" y="545" fill="#9D174D" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">ML Baseline</text>
+<text x="730" y="585" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Color-stat features</text>
+<text x="730" y="613" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Random Forest</text>
+<text x="730" y="641" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Comparison signal</text>
+
+<rect x="1040" y="240" width="250" height="160" rx="24" fill="#EDE9FE"/>
+<text x="1070" y="285" fill="#5B21B6" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Outputs</text>
+<text x="1070" y="325" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Predicted class</text>
+<text x="1070" y="353" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Saved model</text>
+<text x="1070" y="381" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Training logs</text>
+
+<rect x="1040" y="500" width="250" height="180" rx="24" fill="#FFE4E6"/>
+<text x="1070" y="545" fill="#9F1239" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="700">Evaluation</text>
+<text x="1070" y="585" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Accuracy</text>
+<text x="1070" y="613" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Confusion matrix</text>
+<text x="1070" y="641" fill="#0F172A" font-family="Helvetica, Arial, sans-serif" font-size="18">Classification report</text>
+
+<path d="M320 320H390" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+<path d="M630 320H700" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+<path d="M630 320C680 320 680 590 700 590" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10"/>
+<path d="M970 320H1040" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+<path d="M970 590H1040" stroke="#64748B" stroke-width="6" stroke-linecap="round"/>
+<path d="M1165 400V500" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10"/>
+
+<circle cx="320" cy="320" r="8" fill="#64748B"/>
+<circle cx="390" cy="320" r="8" fill="#64748B"/>
+<circle cx="630" cy="320" r="8" fill="#64748B"/>
+<circle cx="700" cy="320" r="8" fill="#64748B"/>
+<circle cx="700" cy="590" r="8" fill="#64748B"/>
+<circle cx="970" cy="320" r="8" fill="#64748B"/>
+<circle cx="970" cy="590" r="8" fill="#64748B"/>
+<circle cx="1040" cy="320" r="8" fill="#64748B"/>
+<circle cx="1040" cy="590" r="8" fill="#64748B"/>
+
+<text x="90" y="740" fill="#64748B" font-family="Helvetica, Arial, sans-serif" font-size="18">Designed for local execution with configurable paths, smoke tests for short verification runs, and exportable artifacts for portfolio presentation.</text>
+</svg>
+"""
+
+
+def generate_diagram(output_path: Path | None = None) -> Path:
+    repo_root = Path(__file__).resolve().parent
+    target = output_path or repo_root / "docs" / "retinopathy_pipeline.svg"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(SVG_CONTENT)
+    return target
+
+
+if __name__ == "__main__":
+    path = generate_diagram()
+    print(f"Diagram saved to {path}")

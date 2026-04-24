@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.DS_Store
+.idea/
+.venv/
+venv/
+site/
+
+artifacts/
+data/
+*.keras
+*.csv
+*.pkl
+cnn_general_structure.png
+efficientnet_structure.png
+efficientnet_b0_blocks.png
+*_report_diagram.png
