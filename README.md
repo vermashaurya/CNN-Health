@@ -1,6 +1,5 @@
-# Diabetic Retinopathy Benchmark
+# Diabetic Retinopathy Benchmark [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/vermashaurya/CNN-Health)
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/vermashaurya/diabetic-retinopathy-benchmark)
 
 Blindness detection from diabetic retinopathy fundus images using transfer learning CNN backbones and a classical machine-learning baseline.
 
@@ -18,6 +17,9 @@ This repository is the polished, GitHub-ready version of a final-year B.Tech Com
 The project no longer depends on the old Kaggle-only directory layout and works from a clean local structure.
 
 ## GitHub Pages UI
+
+**Live at** - https://vermashaurya.github.io/CNN-Health <br><br>
+[![UI Preview](https://img.shields.io/badge/UI-Interactive-brightgreen)](https://vermashaurya.github.io/CNN-Health/)
 
 The repository includes a static presentation site in `docs/` designed for GitHub Pages. It explains:
 
@@ -139,4 +141,5 @@ This repository intentionally does not fabricate performance numbers. Once you r
 
 ## License
 
-This repository is ready to be published under the MIT License.
+This project is licensed under the MIT License - Checkout [LICENSE](LICENSE) for details. <br><br>
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
