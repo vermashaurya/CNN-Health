@@ -141,5 +141,9 @@ This repository intentionally does not fabricate performance numbers. Once you r
 
 ## License
 
-This project is licensed under the MIT License - Checkout [LICENSE](LICENSE) for details. <br><br>
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+This project is licensed under the [MIT License](LICENSE) <br><br>
+Copyright (c) 2026 <br>
+<img src="name-geo2.avif" alt="Logo" width="600"/> <br><br>
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE) <br>
+Feel free to take inspiration. <br>
+Happy Coding !
