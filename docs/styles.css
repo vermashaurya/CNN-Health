@@ -85,9 +85,8 @@ a {
 }
 
 .hero h1 {
-  margin: 12px 0 16px;
-  max-width: 11ch;
-  font-size: clamp(3.2rem, 7vw, 6rem);
+  margin: 12px 0 0px;
+  font-size: 4.2rem;
   line-height: 0.94;
 }
 
@@ -326,7 +325,8 @@ a {
 }
 
 .results-cards {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 75rem;
 }
 
 .result-value {
@@ -403,6 +403,10 @@ a {
   .future-grid {
     grid-template-columns: 1fr;
   }
+  
+  .results-cards {
+    width: 100%;
+  }
 
   .topbar {
     flex-direction: column;
@@ -411,7 +415,8 @@ a {
   }
 
   .stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 3fr));
+    max-width: 100%;
   }
 }
 
@@ -422,7 +427,7 @@ a {
 
   .hero h1 {
     max-width: none;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
   }
 
   .hero-actions {
